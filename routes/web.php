@@ -42,3 +42,5 @@ Route::prefix('administrador')->middleware(['auth:web'])->group(function () {
     Route::post('/posts/destroy/{post}',[PostController::class,'destroy'])->name('admin.post.destroy');
 });
 
+
+

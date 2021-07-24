@@ -39,20 +39,6 @@
                 </ul>
             </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('blog') }}">Articulos</a>
-                </li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('about') }}">Acerca
-                        de</a>
-                </li>
-            </ul>
-        </div>
     </nav>
     <!-- Page Header-->
     <header class="masthead" style="background-image: url('{{ asset('/storage/' . $cover->image_url) }}')">
@@ -70,53 +56,53 @@
                             <?php
                             $date = new DateTime($cover->updated_at);
                             // echo $date->format('Y-m-d H:i');
-
+                            
                             $dia = $date->format('d');
                             $m = $date->format('m');
                             $mes = 'enero';
                             switch ($m) {
-                            case '1':
-                            $mes = 'enero';
-                            break;
-                            case '2':
-                            $mes = 'febrero';
-                            break;
-                            case '3':
-                            $mes = 'marzo';
-                            break;
-                            case '4':
-                            $mes = 'abril';
-                            break;
-                            case '5':
-                            $mes = 'mayo';
-                            break;
-                            case '6':
-                            $mes = 'junio';
-                            break;
-                            case '7':
-                            $mes = 'julio';
-                            break;
-                            case '8':
-                            $mes = 'agosto';
-                            break;
-                            case '9':
-                            $mes = 'septiembre';
-                            break;
-                            case '10':
-                            $mes = 'octubre';
-                            break;
-                            case '11':
-                            $mes = 'noviembre';
-                            break;
-                            case '12':
-                            $mes = 'diciembre';
-                            break;
-
-                            default:
-                            break;
+                                case '1':
+                                    $mes = 'enero';
+                                    break;
+                                case '2':
+                                    $mes = 'febrero';
+                                    break;
+                                case '3':
+                                    $mes = 'marzo';
+                                    break;
+                                case '4':
+                                    $mes = 'abril';
+                                    break;
+                                case '5':
+                                    $mes = 'mayo';
+                                    break;
+                                case '6':
+                                    $mes = 'junio';
+                                    break;
+                                case '7':
+                                    $mes = 'julio';
+                                    break;
+                                case '8':
+                                    $mes = 'agosto';
+                                    break;
+                                case '9':
+                                    $mes = 'septiembre';
+                                    break;
+                                case '10':
+                                    $mes = 'octubre';
+                                    break;
+                                case '11':
+                                    $mes = 'noviembre';
+                                    break;
+                                case '12':
+                                    $mes = 'diciembre';
+                                    break;
+                            
+                                default:
+                                    break;
                             }
                             $anio = $date->format('Y');
-
+                            
                             echo ' (' . $dia . ' de ' . $mes . ' de ' . $anio . ').';
                             ?>
                         </span>
@@ -145,10 +131,11 @@
                                     alt="..." /></a>
                             <span class="caption text-muted">{{ $post->title }}</span>
                         @else
-                            <p>
+
                             <h4>{{ $post->title }}</h4>
-                            {{ $post->content }}
-                            </p>
+                            <?php
+                                echo str_replace("\n", "</p>\n<p>", '<p>'.nl2br($post->content).'</p>');   
+                            ?>
                         @endif
                     @endforeach
 

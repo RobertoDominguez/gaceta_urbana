@@ -31,14 +31,14 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Titulo:</strong>
-                                        <input type="text" name="title" value="{{$cover->title}}" maxlength="50" class="form-control">
+                                        <input type="text" name="title" value="{{$cover->title}}" maxlength="200" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Autor:</strong>
-                                        <input type="text" name="author" value="{{$cover->author}}" maxlength="50" class="form-control">
+                                        <input type="text" name="author" value="{{$cover->author}}" maxlength="200" class="form-control">
                                     </div>
                                 </div>
 
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <strong>Imagen:</strong>
                                         <input type="file" name="image" onchange="validarFile(this);" value=""
-                                            maxlength="50" class="form-control">
+                                            class="form-control">
                                     </div>
                                 </div>
 
